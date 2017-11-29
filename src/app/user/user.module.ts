@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { UserLoginComponent } from './login/login.component';
 import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 
+import { UserService } from './user.service';
+
 
 import { routes } from './user.router';
 
@@ -25,6 +27,9 @@ import { routes } from './user.router';
   ],
   exports: [
     MatFormFieldModule, MatInputModule
+  ],
+  providers: [
+    UserService
   ]
 })
 
