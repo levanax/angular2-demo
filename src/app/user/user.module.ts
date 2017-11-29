@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { UserLoginComponent } from './login/login.component';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 
 import { routes } from './user.router';
@@ -15,8 +16,12 @@ import { routes } from './user.router';
   ],
   imports: [
     CommonModule,
-    MatFormFieldModule, MatInputModule,
-    RouterModule.forChild(routes)
+    FormsModule,
+    RouterModule.forChild(routes),
+
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatButtonModule
   ],
   exports: [
     MatFormFieldModule, MatInputModule

@@ -1,5 +1,11 @@
 <div>user login ....</div>
 
 <mat-form-field class="demo-full-width">
-  <input matInput placeholder="Login ID" value="">
+  <input [(ngModel)]="loginID" matInput placeholder="Login ID">
 </mat-form-field>
+
+<mat-form-field class="demo-full-width">
+  <input [(ngModel)]="password" type="password" matInput placeholder="Password">
+</mat-form-field>
+
+<button (click)="onLogin()" mat-button>Login</button>

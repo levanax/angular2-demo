@@ -7,5 +7,12 @@ import { Component, OnInit} from '@angular/core';
 })
 
 export class UserLoginComponent {
-  
+  loginID: string;
+  password: string;
+
+  onLogin(): void {
+    this.loginID;
+    this.password;
+    console.log(this.loginID, this.password);
+  }
 }
