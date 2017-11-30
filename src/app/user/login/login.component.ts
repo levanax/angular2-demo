@@ -16,9 +16,9 @@ export class UserLoginComponent {
   onLogin(): void {
     this.loginID;
     this.password;
-    this.userService.login({ loginID: this.loginID, password: this.password })
-      .then((data) => {
-        console.log(data)
+    this.userService.login({ loginID: this.loginID, password: this.password, ordChnl: 'W' })
+      .then(data => {
+        console.log(data);
       });
   }
 }
