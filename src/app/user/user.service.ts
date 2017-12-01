@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
+import { Session } from '../config/session';
+import { UserData } from '../class/user-data';
+
 
 @Injectable()
 export class UserService {
@@ -22,7 +25,19 @@ export class UserService {
 
     return this.http.post(url, data, { headers: this.headers })
       .toPromise()
-      .then(res => res.json() as any)
+      .then(res => {
+        let result = res.json() as any;
+
+        if (result.status === 'S') {
+          let authorization = res.headers.get('authorization');
+
+          Session.userData = new UserData({
+            loginID: data.loginID,
+            authorization: authorization
+          });
+        }
+        return result;
+      })
       .catch(this.handleError);
   }
 

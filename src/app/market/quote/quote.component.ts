@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MarketService } from '../market.service';
+import { Session } from '../../config/session';
 
 
 @Component({
@@ -7,6 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styles:[``] 
 })
 
-export class MarketQuoteComponent {
-  
+export class MarketQuoteComponent implements OnInit {
+  constructor(private marketService: MarketService) {}
+  ngOnInit(): void {
+    this.marketService.initConnect({
+      authorization: Session.userData.authorization
+    });
+
+  }
 }
+
